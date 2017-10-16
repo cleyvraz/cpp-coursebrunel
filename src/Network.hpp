@@ -1,8 +1,6 @@
 #include <vector>
 #include "Neuron.hpp"
 
-
-
 #ifndef NETWORK_HPP
 #define NETWORK_HPP
 
@@ -11,15 +9,15 @@ class Network{
 
 	public:
 		///constructor & destructor
-			Network(double d=1.5,double j=0.1);
+			Network(double,double);
 			~Network();
 		///method
-			void connect(double,double,double,double);
-	
+			void connect(double,double);
+			void addneuron(Neuron);
 	private:
-		std::vector<Neuron> neurons_;
-		double D_;							///delay
-		double J_; 						///amplitude/weight
-};
+		std::vector<Neuron> neurons_;		///the network of all neurons
+		double D_;							///delay in steps
+		double J_; 							///amplitude/weight
+};	
 
 #endif

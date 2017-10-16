@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Neuron.hpp"
+#include "Neuron.cpp"
 #include "Network.cpp"
 #include <fstream>
 
@@ -8,7 +8,10 @@ using namespace std;
 int main () {
 	
 		Network network;
-		
+		//Neuron neuron1;
+		//Neuron neuron2;
+		//network.addneuron(neuron1);
+		//network.addneuron(neuron2);
 	///arbitrary values 
 		int tStart=0;
 		int tStop=500;
@@ -44,34 +47,21 @@ int main () {
 			}
 		}while(((a<2)||(a>500)) || ((b<2)||(b>500)) || (b<a));
 		
-		double h=0.1;						/// time interval
-		int n=tStart;						/// integers: currentTime= h*n	
-		
-		double R=20;						///refractory time
-					
+		int n=tStart;						/// clock in step currentTime= h*n			
 		double current_I;
-	
-		
 		do{
-		
-			//membrPot << neuron1.getv_m()<< "\n" ;
-
-			if(((n*h)>=a)&&((n*h)<=b)){
-		
+			//membrPot << neuron1.getv_m()<< "\n" 
+			if((n>=a)&&(n<=b)){
 				current_I=I;
 			}else{
-			
 				current_I=0;
 			}
-			network.connect(n,h,current_I,R);
-
+			network.connect(n,current_I); 			///scans each neurons, calls update and receive
 			//neuron1.update(n,h,current_I,R);
-			
 			n++;
 			
-		}while(n*h <= tStop);
+		}while(n <= tStop);
 		
 		membrPot.close();
-
 }
             

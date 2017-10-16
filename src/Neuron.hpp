@@ -1,4 +1,5 @@
 #include <vector>
+#include <array>
 
 
 #ifndef NEURON_HPP
@@ -8,17 +9,18 @@ class Neuron{
 
 	public:
 	 ///constructor & destructor
-		Neuron(double m=0,bool r=false,double sth=20,double t=20,double c=0);
+		Neuron(double,bool,double,double,double ,double ,double,double);
 		~Neuron();
 		
 		std::vector<Neuron> targets_;			///Neurons connected to object 
 
 	///methodes
-		bool update(int,double,double,double);  ///updates neuron state from t to t+(n*h)
+		bool update(int,double);  ///updates neuron state from t to t+(n*h)
 		int getnbSpikes();					
 		double getv_m();
 		bool getrefractory();
-		void receive(double,double);					///receives postsynaptic current					
+		void receive(int,double);			///receives postsynaptic current (time t+d, weight J)					
+		double geth();
 		
 	private: 
 		int nb_spikes_;
@@ -28,8 +30,13 @@ class Neuron{
 		double v_th_;							///Threshold potential 
 		double tau_;							///membrane time constant
 		double mem_res_;						///membrane resistance
+		double R_;								///refractory time
+		double h_;								/// time interval
 		int clock_;
-							
+		double delay_;
+		double c1;								///constants solution differential equation
+		double c2;				
+		std::array<int,16> spike_buff_;		///cases represent time steps containing weight J
 		
 };
 
