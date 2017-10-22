@@ -5,17 +5,20 @@
 #define NETWORK_HPP
 
 
-class Network{
+class Network
+{
 
 	public:
 		///constructor & destructor
 			Network(double,double);
 			~Network();
 		///method
-			void connect(double,double);
+			void connect(double);
 			void addneuron(Neuron);
+			Neuron getneuron(int);
 	private:
-		std::vector<Neuron> neurons_;		///the network of all neurons
+		int nb_neurons_=2;
+		std::vector<Neuron*> neurons_;		///the network of all neurons
 		double D_;							///delay in steps
 		double J_; 							///amplitude/weight
 };	
