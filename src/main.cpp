@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Neuron.cpp"
-#include "Network.cpp"
+#include "Neuron.hpp"
+#include "Network.hpp"
 #include <fstream>
 
 using namespace std;
@@ -64,7 +64,7 @@ int main (){
 
 				current_I=0;
 			}*/			
-			membrPot << network.getneuron(0).getv_m()<< "\n" ;
+			membrPot << network.getneuron(1).getv_m()<< "\n" ;
 
 			network.connect(n); 			///scans each neurons, calls update and receive
 			n++;

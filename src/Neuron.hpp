@@ -5,15 +5,17 @@
 #ifndef NEURON_HPP
 #define NEURON_HPP
 
+class InhibitoryNeuron;
+class ExcitatoryNeuron;
+
 class Neuron
 {
 
 	public:
 	 ///constructor & destructor
-		Neuron(double,bool,double,double,double,double,double,double,double);
+		Neuron(double m=0,bool r=false,double sth=20 ,double t=2 ,double c=0,double d=15,double rcst=20,double h=0.1,double i=0.0);
 		~Neuron();
-		
-
+	
 	///methodes
 		bool update(int);  ///updates neuron state from t to t+(n*h)
 		int getnbSpikes();					
@@ -21,14 +23,13 @@ class Neuron
 		bool getrefractory();
 		void receive(int,double);			///receives postsynaptic current (time t+d, weight J)					
 		double geth();
-		void addtarget(Neuron);
-		std::vector<Neuron> gettargets();
+		void addtarget(Neuron*);
+		std::vector<Neuron*> gettargets();
 		void setI(double);	
 		
-		
-		std::vector<Neuron> targets_;			///Neurons connected to object 
+		std::vector<Neuron*> targets_;			///Neurons connected to object 
 
-	private: 
+	protected: 
 	
 		int nb_spikes_;
 		double v_m_; 				     		///Membrane potential (in mV)
@@ -47,6 +48,5 @@ class Neuron
 		std::vector<double> spike_buff_;			// à changer ///cases represent time steps containing weight J
 		
 };
-
 
 #endif
