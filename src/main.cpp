@@ -66,7 +66,7 @@ int main (){
 			}*/			
 			membrPot << network.getneuron(1).getv_m()<< "\n" ;
 
-			network.connect(n); 			///scans each neurons, calls update and receive
+			network.update(n); 			///scans each neurons, calls update and receive
 			n++;
 		}while(n <= tStop);
 		

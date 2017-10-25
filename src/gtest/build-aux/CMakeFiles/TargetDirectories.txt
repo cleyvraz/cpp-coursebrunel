@@ -1,0 +1,2 @@
+/home/INTRANET/cleyvraz/myfiles/cpp/BA3/Neuron/src/gtest/build-aux/CMakeFiles/gtest.dir
+/home/INTRANET/cleyvraz/myfiles/cpp/BA3/Neuron/src/gtest/build-aux/CMakeFiles/gtest_main.dir

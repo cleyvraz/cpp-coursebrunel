@@ -19,9 +19,6 @@ bool Neuron::update(int n)
 		++nb_spikes_;
 		refractory_= true;
 		spike=true;
-				std::cerr<< "(spike) case buffer= " << clock_%spike_buff_.size() << std::endl;
-
-		
 	}else if((refractory_)&&((n*h_)-spikes_time.back()>=(1*h_)))
 	{
 		refractory_= false;
@@ -29,18 +26,14 @@ bool Neuron::update(int n)
 	
 	if(refractory_){
 		v_m_=0.0;
-		
+	
 	}else{
-		std::cerr<< "case buffer= " << clock_%spike_buff_.size() << std::endl;
-		std::cerr<< "j = " << spike_buff_[6] << std::endl;
 
 		double newMembPot =v_m_*c1+(i_ext_*c2) + spike_buff_[clock_%spike_buff_.size()]; 
 		spike_buff_[clock_%spike_buff_.size()]=0.0;		
 		v_m_=newMembPot;
 	}
 	++clock_;		
-	std::cerr<< "Clock = " << clock_ << std::endl;
-	std::cerr<< "Membrane potential = " << v_m_ << std::endl;
 	return spike;
 }
 
@@ -48,8 +41,6 @@ void Neuron::receive(int t, double j)
 {		
 	int tStep = t % spike_buff_.size();
 	spike_buff_[tStep]+=j;
-	std::cerr<< "J sera dans case = " << tStep<< std::endl;
-	std::cerr<< "futur j = " << spike_buff_[6] << std::endl;
 }
 
 void Neuron::setI(double i){
