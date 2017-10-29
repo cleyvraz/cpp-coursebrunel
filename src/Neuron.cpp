@@ -1,4 +1,5 @@
 #include "Neuron.hpp" 
+#include "Generatepoisson.hpp"
 #include <cmath>
 #include <iostream>
 
@@ -28,8 +29,8 @@ bool Neuron::update(int n)
 		v_m_=0.0;
 	
 	}else{
-
-		double newMembPot =v_m_*c1+(i_ext_*c2) + spike_buff_[clock_%spike_buff_.size()]; 
+		int vext=(0.1*0.02*1000*0.1);
+		double newMembPot =v_m_*c1+(i_ext_*c2) + spike_buff_[clock_%spike_buff_.size()] + generatepoisson(vext); 
 		spike_buff_[clock_%spike_buff_.size()]=0.0;		
 		v_m_=newMembPot;
 	}

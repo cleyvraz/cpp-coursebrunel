@@ -1,10 +1,8 @@
 #include <vector>
 #include "Neuron.hpp"
 
-
 #ifndef NETWORK_HPP
 #define NETWORK_HPP
-
 
 class Network
 {
@@ -12,9 +10,9 @@ class Network
 	///constructor & destructor
 		Network(double d=15, double j=0.1);
 		~Network();
-	///method
+	///methods
+		double getj();
 		void update(int);
-		void addneuron(Neuron);
 		Neuron getneuron(int);
 		std::vector<std::vector<int>> connexions_; // en public pour main_unittest accès
 

@@ -1,19 +1,17 @@
 #include <iostream>
 #include "Network.hpp"
-#include "GenerateRandom.hpp"
+#include "Generaterandom.hpp"
 
 Network::Network(double d, double j)
 :D_(d), J_(j)
 {	
 	std::cout<< "debut init" << std::endl;
-
 	int nb_neurons =(nb_inhibitoryneurons_ + nb_excitatoryneurons_);											
 	neurons_.resize(nb_neurons);
 	connexions_.resize(nb_neurons,std::vector<int>(nb_neurons,0));										
 	initialisation(nb_neurons);
 	connect();
-		std::cout<< "fin init" << std::endl;
-
+	std::cout<< "fin init" << std::endl;
 }
 
 void Network::update(int n)
@@ -28,7 +26,14 @@ void Network::update(int n)
 			{
 				if(connexions_[j][i] != 0)
 				{	
-					neurons_[j]->receive(n+D_, J_);
+					int j=(connexions_[j][i]*J_);
+					if(i<=10000)
+					{
+						neurons_[j]->receive(n+D_, j);
+					}else{
+						neurons_[j]->receive(n+D_, j*(-5));
+	
+					}		
 				}
 			}
 		}
@@ -67,17 +72,14 @@ Neuron Network::getneuron(int n)
 {
 	return *neurons_[n];
 }
-
-/*void Network::addneuron(Neuron n)
+double Network::getj()
 {
-	neurons_.push_back(n);
+	return J_;
 }
-*/
+
+
 void Network::writespikefile()
 {
-	
-	
-	
 	
 } 
 
