@@ -4,6 +4,6 @@
 
 #include <random>
 
-int generatepoisson(int);
+double generatepoisson(double);
 
 #endif 

@@ -1,9 +1,9 @@
 #include "Generatepoisson.hpp"
 
 
-int generatepoisson(int rate)
+double generatepoisson(double rate)
 {
-	int number;
+	double number;
 	std::default_random_engine gen;
 	std::poisson_distribution<int> dis(rate);
 	number=dis(gen);

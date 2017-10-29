@@ -2,6 +2,7 @@
 #include <cmath>
 #include "Neuron.hpp"
 #include "Network.hpp"
+#include "Generatepoisson.hpp"
 #include "gtest/gtest.h"
 
 TEST (NeuronTest, MembranePotential)
