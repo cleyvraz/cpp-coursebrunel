@@ -18,13 +18,13 @@ class Neuron
 		bool getrefractory();
 		void receive(int,double);			/*!receives postsynaptic current (time t+d, weight J)*/					
 		double geth();
-		void addtarget(Neuron*);
-		std::vector<Neuron*> gettargets();
+		//void addtarget(Neuron*);
+		//std::vector<Neuron*> gettargets();
 		void setI(double);	
 		
-		std::vector<Neuron*> targets_;			/*!Neurons connected to object */
+		//std::vector<Neuron*> targets_;			/*!Neurons connected to object */
 
-	protected: 
+	private: 
 	
 		int nb_spikes_;
 		double v_m_; 				     		/*!Membrane potential (in mV)*/

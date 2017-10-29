@@ -49,7 +49,7 @@ void Neuron::setI(double i){
 }
 
 		
-void Neuron::addtarget(Neuron* n)
+/*void Neuron::addtarget(Neuron* n)
 {
 	targets_.push_back(n);
 }
@@ -58,7 +58,7 @@ std::vector<Neuron*> Neuron::gettargets()
 {
 	return targets_;
 }
-
+*/
 int Neuron::getnbSpikes()
 {
 	return nb_spikes_;
