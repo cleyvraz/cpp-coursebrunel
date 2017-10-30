@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 #include "Network.hpp"
 #include "Generaterandom.hpp"
 
@@ -75,7 +76,7 @@ void Network::connect()
 			r=generaterandom(0,(Ce-1));
 			neurons_[r]->addtarget(i);
 		}	
-		for(size_t n=0; n<Ce; ++n)
+		for(size_t n=0; n<Ci; ++n)
 		{
 			r=generaterandom(Ce, neurons_.size()-1);
 			neurons_[r]->addtarget(i);
@@ -87,11 +88,11 @@ Neuron Network::getneuron(int n)
 {
 	return *neurons_[n];
 }
+
 double Network::getj()
 {
 	return J_;
 }
-
 
 void Network::writespikefile()
 {

@@ -50,7 +50,6 @@ void Neuron::setI(double i){
 	i_ext_=i;
 }
 
-		
 unsigned int Neuron::gettargetsize()
 {
 	return targets_.size();
