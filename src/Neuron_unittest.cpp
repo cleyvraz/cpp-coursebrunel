@@ -5,7 +5,10 @@
 #include "Generatepoisson.hpp"
 #include "gtest/gtest.h"
 
-TEST (NeuronTest, MembranePotential)
+/**
+ * Test 1: test if v_m after 1 step is correct
+ */
+TEST (NeuronTest, MembranePotential) 
 {
 		Neuron neuron;
 		neuron.setI(1.0);

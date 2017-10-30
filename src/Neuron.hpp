@@ -8,7 +8,7 @@ class Neuron
 
 	public:
 	 //!constructor & destructor
-		Neuron(double m=0,bool r=false,double sth=20 ,double t=20 ,double c=0,double d=15,double rcst=20,double h=0.1,double i=0.0);
+		Neuron(double m=0,bool r=false,double sth=20 ,double t=20 ,double c=0,double d=15,double rcst=20,double h=0.1,double i=0.0, double j=0.1);
 		~Neuron();
 	
 	//!methodes
@@ -18,14 +18,14 @@ class Neuron
 		bool getrefractory();
 		void receive(int,double);			/*!receives postsynaptic current (time t+d, weight J)*/					
 		double geth();
-		//void addtarget(Neuron*);
 		//std::vector<Neuron*> gettargets();
-		void setI(double);	
+		void setI(double);
+		unsigned int gettargetsize();
+		unsigned int gettargets(unsigned int);
+		void addtarget(unsigned int i);
 		
-		//std::vector<Neuron*> targets_;			/*!Neurons connected to object */
 
 	private: 
-	
 		int nb_spikes_;
 		double v_m_; 				     		/*!Membrane potential (in mV)*/
 		std::vector<double> spikes_time; 		/*!Times when the spikes occured*/
@@ -39,9 +39,11 @@ class Neuron
 		double delay_;
 		double c1;								/*!constants for the solution differential equation*/
 		double c2;	
-		double i_ext_;			
+		double i_ext_;		
+		double j_ext;	
 		std::vector<double> spike_buff_;			// à changer ///cases represent time steps containing weight J
-		
+		std::vector<unsigned int> targets_;			/*!Neurons connected to object */
+
 };
 
 #endif

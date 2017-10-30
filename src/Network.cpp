@@ -8,7 +8,7 @@ Network::Network(double d, double j)
 	std::cout<< "debut init" << std::endl;
 	int nb_neurons =(nb_inhibitoryneurons_ + nb_excitatoryneurons_);											
 	neurons_.resize(nb_neurons);
-	connexions_.resize(nb_neurons,std::vector<int>(nb_neurons,0));										
+	//connexions_.resize(nb_neurons,std::vector<int>(nb_neurons,0));										
 	initialisation(nb_neurons);
 	connect();
 	std::cout<< "fin init" << std::endl;
@@ -17,24 +17,21 @@ Network::Network(double d, double j)
 void Network::update(int n)
 {
 	bool spike;
-	for(int i=0; i<neurons_.size(); ++i)
+	for(size_t i=0; i<neurons_.size(); ++i)
 	{
 		spike=neurons_[i]->update(n);
 		if(spike) 
-		{	
-			for(int j=0; j<neurons_.size(); ++j)
+		{
+			for(size_t j=0; j<neurons_[i]->gettargetsize(); ++j)
 			{
-				if(connexions_[j][i] != 0)
-				{	
-					int j=(connexions_[j][i]*J_);
-					if(i<=10000)
-					{
-						neurons_[j]->receive(n+D_, j);
-					}else{
-						neurons_[j]->receive(n+D_, j*(-5));
-	
-					}		
-				}
+				unsigned int target=(neurons_[i]->gettargets(j));
+					
+				if(target<=10000)
+				{
+					neurons_[j]->receive(n+D_, J_);
+				}else{
+					neurons_[j]->receive(n+D_, J_*(-5));
+				}		
 			}
 		}
 	}	
@@ -49,7 +46,7 @@ void Network::initialisation(int nb)
 		neurons_[i]= neuron;
 	}
 }
-
+/*
 void Network::connect()
 {
 	int r;
@@ -57,7 +54,7 @@ void Network::connect()
 	{
 		for(unsigned int j=0; j<Ce; ++j)
 		{
-			r=generaterandom(0, Ce);
+			r=generaterandom(0, Ce-1);
 			connexions_[i][r]+= 1;
 		}
 		for(unsigned int n=0; n<=Ci; ++n)
@@ -66,6 +63,24 @@ void Network::connect()
 			connexions_[i][r]+= 1;
 		}
 	}	
+}*/
+
+void Network::connect()
+{
+	unsigned int r;
+	for(size_t i=0; i<neurons_.size(); ++i)
+	{
+		for(size_t j=0; j<Ce; ++j)
+		{
+			r=generaterandom(0,(Ce-1));
+			neurons_[r]->addtarget(i);
+		}	
+		for(size_t n=0; n<Ce; ++n)
+		{
+			r=generaterandom(Ce, neurons_.size()-1);
+			neurons_[r]->addtarget(i);
+		}	
+	}
 }
 
 Neuron Network::getneuron(int n)

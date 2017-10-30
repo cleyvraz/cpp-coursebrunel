@@ -14,7 +14,7 @@ class Network
 		double getj();
 		void update(int);
 		Neuron getneuron(int);
-		std::vector<std::vector<int>> connexions_; // en public pour main_unittest accès
+		//std::vector<std::vector<int>> connexions_; // en public pour main_unittest accès
 
 	private:
 		//int nb_neurons_=2;

@@ -3,8 +3,8 @@
 #include <cmath>
 #include <iostream>
 
-Neuron::Neuron(double m,bool r,double sth,double t,double c ,double d,double rcst,double h,double i)
-:v_m_(m),refractory_(r), v_th_(sth), tau_(t),clock_(c),delay_(d),R_(rcst),h_(h),i_ext_(i)
+Neuron::Neuron(double m,bool r,double sth,double t,double c ,double d,double rcst,double h,double i,double j)
+:v_m_(m),refractory_(r), v_th_(sth), tau_(t),clock_(c),delay_(d),R_(rcst),h_(h),i_ext_(i),j_ext(j)
 {
 	spike_buff_.resize(delay_+ 1,0.0); 
 	c1=(exp(-h_/tau_));
@@ -29,8 +29,9 @@ bool Neuron::update(int n)
 		v_m_=0.0;
 	
 	}else{
-		double vext=(0.1*0.02*1000*0.1);
-		double newMembPot =v_m_*c1+(i_ext_*c2) + spike_buff_[clock_%spike_buff_.size()] + generatepoisson(vext); 
+		double nuext=(2*v_th_/(j_ext*tau_));
+		//double vext=2;
+		double newMembPot =v_m_*c1+(i_ext_*c2) + spike_buff_[clock_%spike_buff_.size()] + j_ext*generatepoisson(nuext); 
 		spike_buff_[clock_%spike_buff_.size()]=0.0;		
 		v_m_=newMembPot;
 	}
@@ -50,16 +51,26 @@ void Neuron::setI(double i){
 }
 
 		
-/*void Neuron::addtarget(Neuron* n)
+unsigned int Neuron::gettargetsize()
 {
-	targets_.push_back(n);
+	return targets_.size();
 }
-
+unsigned int Neuron::gettargets(unsigned int i)
+{
+	return targets_[i];
+}
+/*
 std::vector<Neuron*> Neuron::gettargets()
 {
 	return targets_;
 }
 */
+
+void Neuron::addtarget(unsigned int i)
+{
+	targets_.push_back(i);
+}
+
 int Neuron::getnbSpikes()
 {
 	return nb_spikes_;
