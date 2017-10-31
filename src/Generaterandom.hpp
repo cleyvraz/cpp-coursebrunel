@@ -3,6 +3,6 @@
 
 #include <random>
 
-int generaterandom(int,int);
+unsigned int generaterandom(unsigned int,unsigned int);
 
 #endif 

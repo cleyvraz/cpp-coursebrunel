@@ -23,7 +23,6 @@ class Neuron
 		unsigned int gettargetsize();
 		unsigned int gettargets(unsigned int);
 		void addtarget(unsigned int i);
-		
 
 	private: 
 		int nb_spikes_;

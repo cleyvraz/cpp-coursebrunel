@@ -7,9 +7,8 @@ using namespace std;
 int main (){
 	
 		Network network;
-		int tStart=0;
-		int tStop=500;
-		
+		unsigned int tStart=0;
+		unsigned int tStop=500;
 		ofstream membrPot("membranePotentiel.txt");
 		
 /*
@@ -44,7 +43,7 @@ int main (){
 		}while(((a<2)||(a>tStop)) || ((b<2)||(b>tStop)) || (b<a));
 
 		
-		int n=tStart;						/// clock in step currentTime= h*n
+		unsigned int n=tStart;						/// clock in step currentTime= h*n
 					
 		do
 		{			
@@ -56,11 +55,10 @@ int main (){
 
 				current_I=0;
 			}*/			
-			membrPot << network.getneuron(1).getv_m()<< "\n" ;
 
-			network.update(n); 			///scans each neurons, calls update and receive
+			network.update(n, membrPot); 			///scans each neurons, calls update and receive
 			n++;
-		}while(n <= tStop);
+		}while(n*0.1 <= tStop);
 		
 		membrPot.close();
 }

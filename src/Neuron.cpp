@@ -8,7 +8,7 @@ Neuron::Neuron(double m,bool r,double sth,double t,double c ,double d,double rcs
 {
 	spike_buff_.resize(delay_+ 1,0.0); 
 	c1=(exp(-h_/tau_));
-	c2=(R_ *(1.0-c1));
+	c2=(R_*(1.0-c1));
 }
 
 bool Neuron::update(int n)
@@ -20,7 +20,7 @@ bool Neuron::update(int n)
 		++nb_spikes_;
 		refractory_= true;
 		spike=true;
-	}else if((refractory_)&&((n*h_)-spikes_time.back()>=(1*h_)))
+	}else if((refractory_)&&((n*h_)-spikes_time.back()>=(2*h_)))
 	{
 		refractory_= false;
 	}
@@ -29,9 +29,12 @@ bool Neuron::update(int n)
 		v_m_=0.0;
 	
 	}else{
-		double nuext=(2*v_th_/(j_ext*tau_));
-		//double vext=2;
-		double newMembPot =v_m_*c1+(i_ext_*c2) + spike_buff_[clock_%spike_buff_.size()] + j_ext*generatepoisson(nuext); 
+		double nuext=(2*v_th_*h_/(j_ext*tau_));
+		//std::cout << nuext << std::endl;
+
+		double newMembPot =v_m_*c1+(i_ext_*c2) + spike_buff_[clock_%spike_buff_.size()] + generatepoisson(nuext); 
+		//std::cout << "VM : " << v_m_ << " Poisson : " << generatepoisson(nuext) << std::endl;
+		//std::cout <<  " Poisson avec 2: " << generatepoisson(2) << std::endl;
 		spike_buff_[clock_%spike_buff_.size()]=0.0;		
 		v_m_=newMembPot;
 	}
@@ -45,8 +48,8 @@ void Neuron::receive(int t, double j)
 	spike_buff_[tStep]+=j;
 }
 
-void Neuron::setI(double i){
-	
+void Neuron::setI(double i)
+{
 	i_ext_=i;
 }
 
