@@ -1,0 +1,48 @@
+\hypertarget{classNeuron}{\section{Neuron Class Reference}
+\label{classNeuron}\index{Neuron@{Neuron}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classNeuron_a823487d01615fadb8ac19a2768dd9d96}{\hyperlink{classNeuron_a823487d01615fadb8ac19a2768dd9d96}{Neuron} ()}\label{classNeuron_a823487d01615fadb8ac19a2768dd9d96}
+
+\begin{DoxyCompactList}\small\item\em constructor(initialization of some members in the core \end{DoxyCompactList}\item 
+\hypertarget{classNeuron_a94a250ce7e167760e593979b899745b1}{\hyperlink{classNeuron_a94a250ce7e167760e593979b899745b1}{$\sim$\-Neuron} ()}\label{classNeuron_a94a250ce7e167760e593979b899745b1}
+
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
+\hypertarget{classNeuron_ade349102c17d508352a1061798083ba2}{bool \hyperlink{classNeuron_ade349102c17d508352a1061798083ba2}{update} ()}\label{classNeuron_ade349102c17d508352a1061798083ba2}
+
+\begin{DoxyCompactList}\small\item\em updates neuron state from t to t+(n$\ast$h)$\ast$/ \end{DoxyCompactList}\item 
+\hypertarget{classNeuron_affb0899ac310398da71c5d3fdb1777a5}{int \hyperlink{classNeuron_affb0899ac310398da71c5d3fdb1777a5}{getnb\-Spikes} ()}\label{classNeuron_affb0899ac310398da71c5d3fdb1777a5}
+
+\begin{DoxyCompactList}\small\item\em getter for the total number of spikes \end{DoxyCompactList}\item 
+\hypertarget{classNeuron_a4a10380b3515e38a1a4baae7b4ab66ce}{double \hyperlink{classNeuron_a4a10380b3515e38a1a4baae7b4ab66ce}{getv\-\_\-m} ()}\label{classNeuron_a4a10380b3515e38a1a4baae7b4ab66ce}
+
+\begin{DoxyCompactList}\small\item\em getter for the membrane potential \end{DoxyCompactList}\item 
+\hypertarget{classNeuron_a0c78342d2e5c09893292550980a50e4d}{bool \hyperlink{classNeuron_a0c78342d2e5c09893292550980a50e4d}{getrefractory} ()}\label{classNeuron_a0c78342d2e5c09893292550980a50e4d}
+
+\begin{DoxyCompactList}\small\item\em getter for the state of the neuron \end{DoxyCompactList}\item 
+\hypertarget{classNeuron_a0f794db12711a961e7be31307e8940fd}{void \hyperlink{classNeuron_a0f794db12711a961e7be31307e8940fd}{receive} (int, double)}\label{classNeuron_a0f794db12711a961e7be31307e8940fd}
+
+\begin{DoxyCompactList}\small\item\em receives postsynaptic current (time t+d, weight J) \end{DoxyCompactList}\item 
+\hypertarget{classNeuron_ae4efea91b87896853c213f25bf22f3e1}{double \hyperlink{classNeuron_ae4efea91b87896853c213f25bf22f3e1}{geth} ()}\label{classNeuron_ae4efea91b87896853c213f25bf22f3e1}
+
+\begin{DoxyCompactList}\small\item\em getter for h\-\_\-, the value of the step \end{DoxyCompactList}\item 
+\hypertarget{classNeuron_a85d5cfb84ab11f4c59c1d594666c5c8a}{void \hyperlink{classNeuron_a85d5cfb84ab11f4c59c1d594666c5c8a}{set\-I} (double)}\label{classNeuron_a85d5cfb84ab11f4c59c1d594666c5c8a}
+
+\begin{DoxyCompactList}\small\item\em setter for the external current I \end{DoxyCompactList}\item 
+\hypertarget{classNeuron_aeaa2c4eb2ea550cea614c444a8568783}{unsigned int \hyperlink{classNeuron_aeaa2c4eb2ea550cea614c444a8568783}{gettargetsize} ()}\label{classNeuron_aeaa2c4eb2ea550cea614c444a8568783}
+
+\begin{DoxyCompactList}\small\item\em getter for the size of the vector of targets(neurons which receive the postsynaptic current \end{DoxyCompactList}\item 
+\hypertarget{classNeuron_a1fc9f687eebf3ec4c1df1432317d15c7}{unsigned int \hyperlink{classNeuron_a1fc9f687eebf3ec4c1df1432317d15c7}{gettargets} (unsigned int)}\label{classNeuron_a1fc9f687eebf3ec4c1df1432317d15c7}
+
+\begin{DoxyCompactList}\small\item\em getter for the index of one target neuron \end{DoxyCompactList}\item 
+\hypertarget{classNeuron_aa1f8780a2fa8f5c64a8be9929d54a3fa}{void \hyperlink{classNeuron_aa1f8780a2fa8f5c64a8be9929d54a3fa}{addtarget} (unsigned int i)}\label{classNeuron_aa1f8780a2fa8f5c64a8be9929d54a3fa}
+
+\begin{DoxyCompactList}\small\item\em adds an index of a target neuron \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Neuron.\-hpp\item 
+Neuron.\-cpp\end{DoxyCompactItemize}
