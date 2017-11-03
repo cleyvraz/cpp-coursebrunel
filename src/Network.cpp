@@ -20,17 +20,28 @@ void Network::runsimulation(unsigned int n)
 {
 	bool spike;
 	std::ofstream file("membranePotentiel.txt");
+	size_t neurons=neurons_.size();
+	Neuron* neuron;
+	
+	static std::random_device rd;									//I put this here so it would only be declare once
+    static std::mt19937 gen(rd());
+	static std::poisson_distribution<> dis(neurons_[1]->getnu_ext());  //every neuron have the same nu_ext hence the [i]
+	
 	do
 	{
-		for(size_t i=0; i<neurons_.size(); ++i)
+		for(size_t i=0; i<neurons; ++i)
 		{
-			spike=neurons_[i]->update();
+			neuron=neurons_[i];
+			spike=neuron->update(dis(gen));
 			if(spike) 
 			{
-				writespikefile(file,i+1,globalclock_);
-				for(size_t j=0; j<neurons_[i]->gettargetsize(); ++j)
+				if(i<=50)
+				{
+					writespikefile(file,i+1,globalclock_);
+				}
+				for(size_t j=0; j<(neuron->gettargetsize()); ++j)
 				{	
-					if((neurons_[i]->gettargets(j))<=10000)
+					if((neuron->gettarget(j))<=nb_excitatoryneurons_)
 					{
 						neurons_[j]->receive(n+D_, J_);
 					}else{
@@ -40,7 +51,7 @@ void Network::runsimulation(unsigned int n)
 			}
 		}
 		++globalclock_;
-	}while(globalclock_<n);
+	}while(globalclock_<=n);
 	file.close();
 }
 
@@ -49,27 +60,31 @@ void Network::initialisation(int nb)
 	neurons_.resize(nb);
 	for(unsigned int i=0; i<neurons_.size();i++)
 	{
-		Neuron* neuron = new Neuron;
-		neurons_[i]= neuron;
+		Neuron* neuron=new Neuron;
+		neurons_[i]=neuron;
 	}
 }
 
 void Network::connect()
 {
-	unsigned int r;
-	for(size_t i=0; i<neurons_.size(); ++i)
+	size_t neurons=neurons_.size();
+	
+	static std::random_device rd;
+	static std::mt19937 gen(rd());
+	static std::uniform_int_distribution<> exci(0,nb_excitatoryneurons_-1);
+	static std::uniform_int_distribution<> inhib(nb_excitatoryneurons_-1,neurons-1);
+	
+	for(size_t i=0; i<neurons; ++i)
 	{
 		for(size_t j=0; j<=Ce; ++j)
 		{
-			r=generaterandom(0,(nb_excitatoryneurons_-1));
-			neurons_[r]->addtarget(i);
+			neurons_[exci(gen)]->addtarget(i);
 		}	
 		for(size_t n=0; n<=Ci; ++n)
 		{
 			if(neurons_.size()>1)
 			{
-				r=generaterandom(nb_excitatoryneurons_, neurons_.size()-1);
-				neurons_[r]->addtarget(i);
+				neurons_[inhib(gen)]->addtarget(i);
 			}
 		}	
 	}
@@ -82,7 +97,7 @@ Neuron* Network::getneuron(size_t n)
 
 void Network::writespikefile(std::ofstream& m, unsigned int neuron,unsigned int t)
 {
-	m <<t*h_<< " " << neuron <<"\n";
+	m <<t*h_<< " " << neuron <<"\n"; 
 } 
 
 Network::~Network() 

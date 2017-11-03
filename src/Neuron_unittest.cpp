@@ -13,31 +13,19 @@ TEST (NeuronTest, MembranePotential)
 		//first update test
 		network.runsimulation(1);
 		EXPECT_EQ(20.0*(1.0*(1-std::exp(-0.1/20.0))), network.getneuron(0)->getv_m());
+		
 		network.runsimulation(10000);
 		EXPECT_EQ(0, network.getneuron(0)->getnbSpikes());
 }
-*/
-	
-/*
-TEST(NetworkTest, Connexions)
+TEST(neuronTest, externalcurrentzero)
 {
-	Network network;
-	
-	int n;
-	size_t c=network.connexions_.size();
-	for(unsigned int i=0; i<c; ++i)
-	{
-		for(unsigned int j=0; j<c; ++j)
-		{
-			if(network.connexions_[i][j] != 0)
-			{
-				++n;
-			}		
-		}	
-	}
-	EXPECT_EQ( 1250, n);
-	
-}*/
+		Network network(1,0);
+		network.getneuron(0)->setI(0.0);
+		network.runsimulation(1000);
+		EXPECT_NEAR(0, network.getneuron(0)->getv_m(), 1e-4);
+}
+	*/
+
 
 int main(int argc, char **argv){
 	::testing::InitGoogleTest(&argc,argv);

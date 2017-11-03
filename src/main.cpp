@@ -4,7 +4,7 @@ using namespace std;
 
 int main (){
 	
-		Network network(100,25);
+		Network network;
 		unsigned int tStop;
 		do
 		{

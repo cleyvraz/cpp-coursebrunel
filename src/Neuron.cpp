@@ -17,27 +17,28 @@ Neuron::Neuron()
 	nu_ext_=(2*v_th_*h_/(j_ext*tau_));
 }
 
-bool Neuron::update()
+bool Neuron::update(int poisson)
 {
 	bool spike=false;
+	double newMembPot;
+	int index=clock_%spike_buff_.size();
 	if(v_m_ > v_th_)
 	{
 		spikes_time.push_back(clock_*h_);
 		++nb_spikes_;
 		refractory_= true;
 		spike=true;
-	}else if((refractory_)&&((clock_)-(spikes_time.back()/h_)>=(20)))
+		v_m_=0.0;
+	}else if((refractory_)&&((clock_*h_)-(spikes_time.back())>=(2)))
 	{
 		refractory_= false;
 	}
-	if(refractory_){
-		v_m_=0.0;
-	}else
+	if(!refractory_)
 	{
-		double newMembPot =v_m_*c1+(i_ext_*c2) + spike_buff_[clock_%spike_buff_.size()] + generatepoisson(nu_ext_); 
-		spike_buff_[clock_%spike_buff_.size()]=0.0;		
+		newMembPot =v_m_*c1+(i_ext_*c2)+spike_buff_[index]+ poisson;//generatepoisson(nu_ext_); 
 		v_m_=newMembPot;
-	}
+	}else 
+	spike_buff_[index]=0.0;	
 	++clock_;		
 	return spike;
 }
@@ -58,7 +59,7 @@ unsigned int Neuron::gettargetsize()
 	return targets_.size();
 }
 
-unsigned int Neuron::gettargets(unsigned int i)
+unsigned int Neuron::gettarget(unsigned int i)
 {
 	return targets_[i];
 }
@@ -81,6 +82,11 @@ double Neuron::getv_m()
 bool Neuron::getrefractory()
 {
 	return refractory_;
+}
+
+double Neuron::getnu_ext()
+{
+	return nu_ext_;
 }
 
 double Neuron::geth()
