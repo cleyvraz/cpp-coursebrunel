@@ -1,5 +1,4 @@
 #include "Neuron.hpp" 
-#include "Random/Generatepoisson.hpp"
 #include <cmath>
 #include <iostream>
 #include <cassert>
@@ -78,7 +77,10 @@ double Neuron::getv_m()
 {
 	return v_m_;
 }
-
+unsigned int Neuron::getclock()
+{
+	return clock_;
+}
 bool Neuron::getrefractory()
 {
 	return refractory_;

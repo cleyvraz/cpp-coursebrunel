@@ -18,6 +18,7 @@ class Neuron
 		unsigned int gettargetsize();				//!<getter for the size of the vector of targets(neurons which receive the postsynaptic current
 		unsigned int gettarget(unsigned int);		//!<getter for the index of one target neuron
 		double getnu_ext();							//!<getter for nu_ext
+		unsigned int getclock();
 		void addtarget(unsigned int i);				//!<adds an index of a target neuron
 
 	private: 

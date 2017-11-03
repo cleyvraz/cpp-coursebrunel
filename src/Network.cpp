@@ -1,8 +1,7 @@
 #include <iostream>
 #include <cassert>
 #include "Network.hpp"
-#include "Random/Generaterandom.hpp"
-
+#include <random>
 
 Network::Network(unsigned int exci, unsigned int inhi)
 :nb_excitatoryneurons_(exci),nb_inhibitoryneurons_(inhi)
@@ -35,10 +34,8 @@ void Network::runsimulation(unsigned int n)
 			spike=neuron->update(dis(gen));
 			if(spike) 
 			{
-				if(i<=50)
-				{
 					writespikefile(file,i+1,globalclock_);
-				}
+				
 				for(size_t j=0; j<(neuron->gettargetsize()); ++j)
 				{	
 					if((neuron->gettarget(j))<=nb_excitatoryneurons_)
@@ -72,15 +69,15 @@ void Network::connect()
 	static std::random_device rd;
 	static std::mt19937 gen(rd());
 	static std::uniform_int_distribution<> exci(0,nb_excitatoryneurons_-1);
-	static std::uniform_int_distribution<> inhib(nb_excitatoryneurons_-1,neurons-1);
+	static std::uniform_int_distribution<> inhib(nb_excitatoryneurons_,neurons-1);
 	
 	for(size_t i=0; i<neurons; ++i)
 	{
-		for(size_t j=0; j<=Ce; ++j)
+		for(size_t j=0; j<Ce; ++j)
 		{
 			neurons_[exci(gen)]->addtarget(i);
 		}	
-		for(size_t n=0; n<=Ci; ++n)
+		for(size_t n=0; n<Ci; ++n)
 		{
 			if(neurons_.size()>1)
 			{
@@ -99,6 +96,10 @@ void Network::writespikefile(std::ofstream& m, unsigned int neuron,unsigned int 
 {
 	m <<t*h_<< " " << neuron <<"\n"; 
 } 
+size_t Network::getsizeneuron()
+{
+	return neurons_.size();
+}
 
 Network::~Network() 
 {

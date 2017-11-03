@@ -7,8 +7,8 @@ enable_testing()
 add_subdirectory(gtest)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
-add_executable(Neuron main.cpp Neuron.cpp Network.cpp Random/Generaterandom.cpp Random/Generatepoisson.cpp)
-add_executable(Neuron_unittest Network.cpp Neuron.cpp Random/Generatepoisson.cpp Random/Generaterandom.cpp Neuron_unittest.cpp)
+add_executable(Neuron main.cpp Neuron.cpp Network.cpp)
+add_executable(Neuron_unittest Network.cpp Neuron.cpp Neuron_unittest.cpp)
 
 target_link_libraries(Neuron_unittest gtest gtest_main)
 add_test(Neuron_unittest Neuron_unittest)

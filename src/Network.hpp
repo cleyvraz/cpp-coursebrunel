@@ -13,7 +13,7 @@ class Network
 		~Network();															//!<Destructor (destroys all the pointers)
 		void runsimulation(unsigned int);									//!<Runs the simultation, calls update method of calss neuron
 		Neuron* getneuron(size_t);											//!<Getter of a neuron from the vector neuron_ (used in tests)
-		
+		size_t getsizeneuron();
 	private:
 		const double h_= 0.1;												//!<integration time step
 		const double D_=15;													//!<delay (in steps!)
