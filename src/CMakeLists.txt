@@ -11,7 +11,7 @@ add_executable(Neuron main.cpp Neuron.cpp Network.cpp)
 add_executable(Neuron_unittest Network.cpp Neuron.cpp Neuron_unittest.cpp)
 
 target_link_libraries(Neuron_unittest gtest gtest_main)
-add_test(Neuron_unittest Neuron_unittest)
+add_test(Neuron_unittest ../src/Neuron_unittest)
 
 ###### Doxygen generation ######
 

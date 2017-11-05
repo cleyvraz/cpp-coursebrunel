@@ -93,36 +93,42 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classNetwork.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="classNetwork.html">Network</a></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <a class="code" href="classNetwork.html">Network</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> exci=10000, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> inhi=2500);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        ~<a class="code" href="classNetwork.html">Network</a>();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordtype">double</span> getj();</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordtype">void</span> runsimulation(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <a class="code" href="classNeuron.html">Neuron</a>* getneuron(<span class="keywordtype">size_t</span>);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordtype">void</span> writespikefile(std::ofstream&amp;,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> globalclock_;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">double</span> h_= 0.1;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">double</span> D_=15;                         </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">double</span> J_=0.1;                            </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nb_excitatoryneurons_;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nb_inhibitoryneurons_;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Ce;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Ci;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        std::vector&lt;Neuron*&gt; neurons_;      </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">void</span> initialisation(<span class="keywordtype">int</span>);               </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">void</span> connect();                         </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">void</span> writespikefile();                  </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};  </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <a class="code" href="classNetwork.html#a5a7f4788158d08f1b180e1bf39aae8b4">Network</a>(<span class="keywordtype">double</span> n=2,<span class="keywordtype">double</span> g=5,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> exci=10000, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> inhi=2500);     </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <a class="code" href="classNetwork.html#a7a4e19cdb4bf0c7ecf82baa643831492">~Network</a>();                                                                         </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classNetwork.html#ab59874bad4191179464d67abec9e6481">runsimulation</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>);                                                   </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="code" href="classNeuron.html">Neuron</a>* <a class="code" href="classNetwork.html#a6959511f813566a6a69cea7482156b0d">getneuron</a>(<span class="keywordtype">size_t</span>);                                                          </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordtype">size_t</span> <a class="code" href="classNetwork.html#af0006b49937b5bfdb9debfd36a82d3d4">getsizeneuron</a>();                                                             </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        constexpr <span class="keyword">static</span>  <span class="keywordtype">double</span> h_= 0.1;                                                   </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        constexpr <span class="keyword">static</span>  <span class="keywordtype">double</span> D_=15;                                                     </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        constexpr <span class="keyword">static</span>  <span class="keywordtype">double</span> J_=0.1;                                                    </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">double</span> G_;                                                                          </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">double</span> eta_;                                                                        </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> globalclock_;                                                          </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nb_excitatoryneurons_;                                                 </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nb_inhibitoryneurons_;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Ce;                                                                    </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Ci;                                                                    </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        std::vector&lt;Neuron*&gt; neurons_;                                                      </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                    </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">void</span> initialization(<span class="keywordtype">int</span>);                                                           </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">void</span> connect();                                                                     </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">void</span> writespikefile(std::ofstream&amp;,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>);                      </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};  </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="classNeuron_html"><div class="ttname"><a href="classNeuron.html">Neuron</a></div><div class="ttdef"><b>Definition:</b> Neuron.hpp:6</div></div>
+<div class="ttc" id="classNetwork_html_a5a7f4788158d08f1b180e1bf39aae8b4"><div class="ttname"><a href="classNetwork.html#a5a7f4788158d08f1b180e1bf39aae8b4">Network::Network</a></div><div class="ttdeci">Network(double n=2, double g=5, unsigned int exci=10000, unsigned int inhi=2500)</div><div class="ttdoc">Constuctor (possibility of changes nb of neurons -&gt; used in the tests) </div><div class="ttdef"><b>Definition:</b> Network.cpp:8</div></div>
+<div class="ttc" id="classNetwork_html_a6959511f813566a6a69cea7482156b0d"><div class="ttname"><a href="classNetwork.html#a6959511f813566a6a69cea7482156b0d">Network::getneuron</a></div><div class="ttdeci">Neuron * getneuron(size_t)</div><div class="ttdoc">Getter of a neuron from the vector neuron_ (used in tests) </div><div class="ttdef"><b>Definition:</b> Network.cpp:130</div></div>
 <div class="ttc" id="classNetwork_html"><div class="ttname"><a href="classNetwork.html">Network</a></div><div class="ttdef"><b>Definition:</b> Network.hpp:9</div></div>
+<div class="ttc" id="classNetwork_html_ab59874bad4191179464d67abec9e6481"><div class="ttname"><a href="classNetwork.html#ab59874bad4191179464d67abec9e6481">Network::runsimulation</a></div><div class="ttdeci">void runsimulation(unsigned int)</div><div class="ttdoc">Runs the simultation, calls update method of calss neuron. </div><div class="ttdef"><b>Definition:</b> Network.cpp:27</div></div>
+<div class="ttc" id="classNetwork_html_a7a4e19cdb4bf0c7ecf82baa643831492"><div class="ttname"><a href="classNetwork.html#a7a4e19cdb4bf0c7ecf82baa643831492">Network::~Network</a></div><div class="ttdeci">~Network()</div><div class="ttdoc">Destructor (destroys all the pointers) </div><div class="ttdef"><b>Definition:</b> Network.cpp:140</div></div>
+<div class="ttc" id="classNetwork_html_af0006b49937b5bfdb9debfd36a82d3d4"><div class="ttname"><a href="classNetwork.html#af0006b49937b5bfdb9debfd36a82d3d4">Network::getsizeneuron</a></div><div class="ttdeci">size_t getsizeneuron()</div><div class="ttdoc">Getter number of all neurons. </div><div class="ttdef"><b>Definition:</b> Network.cpp:135</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 1 2017 19:00:23 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 5 2017 17:14:22 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

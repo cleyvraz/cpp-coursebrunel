@@ -1,0 +1,19 @@
+import numpy as np
+import matplotlib.pyplot as pl
+
+data=np.genfromtxt('Spikesa.txt')
+
+select=np.array([d for d in data if d[1]<30])
+data1=select.transpose()
+
+color=('red')
+pl.scatter(data1[0],data1[1],alpha=0.8,s=10,c=color,edgecolors='none');
+pl.xlabel('time[ms]')
+pl.ylabel('Neurons')
+pl.show();
+
+pl.xlabel('time(ms)')
+pl.ylabel('Nb of spikes')
+
+n,bins,patches = pl.hist(data1[0], 100,normed=0, alpha=0.75)
+pl.show();

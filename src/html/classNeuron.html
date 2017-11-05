@@ -92,16 +92,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a823487d01615fadb8ac19a2768dd9d96"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a823487d01615fadb8ac19a2768dd9d96"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuron.html#a823487d01615fadb8ac19a2768dd9d96">Neuron</a> ()</td></tr>
-<tr class="memdesc:a823487d01615fadb8ac19a2768dd9d96"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor(initialization of some members in the core <br/></td></tr>
+<tr class="memdesc:a823487d01615fadb8ac19a2768dd9d96"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor(initialization of some members in the core) <br/></td></tr>
 <tr class="separator:a823487d01615fadb8ac19a2768dd9d96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94a250ce7e167760e593979b899745b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94a250ce7e167760e593979b899745b1"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuron.html#a94a250ce7e167760e593979b899745b1">~Neuron</a> ()</td></tr>
 <tr class="memdesc:a94a250ce7e167760e593979b899745b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor <br/></td></tr>
 <tr class="separator:a94a250ce7e167760e593979b899745b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade349102c17d508352a1061798083ba2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade349102c17d508352a1061798083ba2"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuron.html#ade349102c17d508352a1061798083ba2">update</a> ()</td></tr>
-<tr class="memdesc:ade349102c17d508352a1061798083ba2"><td class="mdescLeft">&#160;</td><td class="mdescRight">updates neuron state from t to t+(n*h)*/ <br/></td></tr>
-<tr class="separator:ade349102c17d508352a1061798083ba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa599028cf83269487c72b3c7add5fa6a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa599028cf83269487c72b3c7add5fa6a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuron.html#aa599028cf83269487c72b3c7add5fa6a">update</a> (int)</td></tr>
+<tr class="memdesc:aa599028cf83269487c72b3c7add5fa6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">updates neuron state from t to t+h : takes an int which is the poisson variable <br/></td></tr>
+<tr class="separator:aa599028cf83269487c72b3c7add5fa6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f794db12711a961e7be31307e8940fd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0f794db12711a961e7be31307e8940fd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuron.html#a0f794db12711a961e7be31307e8940fd">receive</a> (int, double)</td></tr>
+<tr class="memdesc:a0f794db12711a961e7be31307e8940fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">receives postsynaptic current (time t+d, weight J) <br/></td></tr>
+<tr class="separator:a0f794db12711a961e7be31307e8940fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affb0899ac310398da71c5d3fdb1777a5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="affb0899ac310398da71c5d3fdb1777a5"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuron.html#affb0899ac310398da71c5d3fdb1777a5">getnbSpikes</a> ()</td></tr>
 <tr class="memdesc:affb0899ac310398da71c5d3fdb1777a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter for the total number of spikes <br/></td></tr>
@@ -114,13 +118,9 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuron.html#a0c78342d2e5c09893292550980a50e4d">getrefractory</a> ()</td></tr>
 <tr class="memdesc:a0c78342d2e5c09893292550980a50e4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter for the state of the neuron <br/></td></tr>
 <tr class="separator:a0c78342d2e5c09893292550980a50e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f794db12711a961e7be31307e8940fd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0f794db12711a961e7be31307e8940fd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuron.html#a0f794db12711a961e7be31307e8940fd">receive</a> (int, double)</td></tr>
-<tr class="memdesc:a0f794db12711a961e7be31307e8940fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">receives postsynaptic current (time t+d, weight J) <br/></td></tr>
-<tr class="separator:a0f794db12711a961e7be31307e8940fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4efea91b87896853c213f25bf22f3e1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae4efea91b87896853c213f25bf22f3e1"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuron.html#ae4efea91b87896853c213f25bf22f3e1">geth</a> ()</td></tr>
-<tr class="memdesc:ae4efea91b87896853c213f25bf22f3e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter for h_, the value of the step <br/></td></tr>
+<tr class="memdesc:ae4efea91b87896853c213f25bf22f3e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter for h_, the integration time step <br/></td></tr>
 <tr class="separator:ae4efea91b87896853c213f25bf22f3e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85d5cfb84ab11f4c59c1d594666c5c8a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a85d5cfb84ab11f4c59c1d594666c5c8a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuron.html#a85d5cfb84ab11f4c59c1d594666c5c8a">setI</a> (double)</td></tr>
@@ -130,14 +130,30 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuron.html#aeaa2c4eb2ea550cea614c444a8568783">gettargetsize</a> ()</td></tr>
 <tr class="memdesc:aeaa2c4eb2ea550cea614c444a8568783"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter for the size of the vector of targets(neurons which receive the postsynaptic current <br/></td></tr>
 <tr class="separator:aeaa2c4eb2ea550cea614c444a8568783"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fc9f687eebf3ec4c1df1432317d15c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1fc9f687eebf3ec4c1df1432317d15c7"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuron.html#a1fc9f687eebf3ec4c1df1432317d15c7">gettargets</a> (unsigned int)</td></tr>
-<tr class="memdesc:a1fc9f687eebf3ec4c1df1432317d15c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter for the index of one target neuron <br/></td></tr>
-<tr class="separator:a1fc9f687eebf3ec4c1df1432317d15c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1f8780a2fa8f5c64a8be9929d54a3fa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa1f8780a2fa8f5c64a8be9929d54a3fa"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuron.html#aa1f8780a2fa8f5c64a8be9929d54a3fa">addtarget</a> (unsigned int i)</td></tr>
-<tr class="memdesc:aa1f8780a2fa8f5c64a8be9929d54a3fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds an index of a target neuron <br/></td></tr>
-<tr class="separator:aa1f8780a2fa8f5c64a8be9929d54a3fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a682e1fe74dd9aa4e191a9fa94d812f86"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a682e1fe74dd9aa4e191a9fa94d812f86"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuron.html#a682e1fe74dd9aa4e191a9fa94d812f86">gettarget</a> (unsigned int)</td></tr>
+<tr class="memdesc:a682e1fe74dd9aa4e191a9fa94d812f86"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter for the index of one target neuron <br/></td></tr>
+<tr class="separator:a682e1fe74dd9aa4e191a9fa94d812f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc29be4d04a1c952070d67036a4010e0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc29be4d04a1c952070d67036a4010e0"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuron.html#abc29be4d04a1c952070d67036a4010e0">getnu_ext</a> ()</td></tr>
+<tr class="memdesc:abc29be4d04a1c952070d67036a4010e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter for nu_ext <br/></td></tr>
+<tr class="separator:abc29be4d04a1c952070d67036a4010e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affcea16a9b974ea539c00ed834c3c984"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="affcea16a9b974ea539c00ed834c3c984"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuron.html#affcea16a9b974ea539c00ed834c3c984">getclock</a> ()</td></tr>
+<tr class="memdesc:affcea16a9b974ea539c00ed834c3c984"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter for the internal time <br/></td></tr>
+<tr class="separator:affcea16a9b974ea539c00ed834c3c984"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae300dfe867eebebf0124fc92278f6571"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae300dfe867eebebf0124fc92278f6571"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuron.html#ae300dfe867eebebf0124fc92278f6571">addtarget</a> (unsigned int)</td></tr>
+<tr class="memdesc:ae300dfe867eebebf0124fc92278f6571"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds an index of a target neuron <br/></td></tr>
+<tr class="separator:ae300dfe867eebebf0124fc92278f6571"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add534f0458a7e6710bb6cecfbb954630"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="add534f0458a7e6710bb6cecfbb954630"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuron.html#add534f0458a7e6710bb6cecfbb954630">seteta</a> (double)</td></tr>
+<tr class="memdesc:add534f0458a7e6710bb6cecfbb954630"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter for eta, called by <a class="el" href="classNetwork.html">Network</a> at construction <br/></td></tr>
+<tr class="separator:add534f0458a7e6710bb6cecfbb954630"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23f8dbecfc862d906fbfe89ae69cf227"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a23f8dbecfc862d906fbfe89ae69cf227"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuron.html#a23f8dbecfc862d906fbfe89ae69cf227">getbuffer</a> (unsigned int)</td></tr>
+<tr class="memdesc:a23f8dbecfc862d906fbfe89ae69cf227"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter for what's in the buffer, used in the tests <br/></td></tr>
+<tr class="separator:a23f8dbecfc862d906fbfe89ae69cf227"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="Neuron_8hpp_source.html">Neuron.hpp</a></li>
@@ -146,7 +162,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 1 2017 19:00:23 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 5 2017 17:14:22 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

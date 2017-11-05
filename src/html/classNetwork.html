@@ -90,21 +90,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a73816b55981c426f7e41d049b7ee4643"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a73816b55981c426f7e41d049b7ee4643"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Network</b> (unsigned int exci=10000, unsigned int inhi=2500)</td></tr>
-<tr class="separator:a73816b55981c426f7e41d049b7ee4643"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a085df1c38e1d0332fdf29de4740dc71c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a085df1c38e1d0332fdf29de4740dc71c"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getj</b> ()</td></tr>
-<tr class="separator:a085df1c38e1d0332fdf29de4740dc71c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a7f4788158d08f1b180e1bf39aae8b4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a7f4788158d08f1b180e1bf39aae8b4"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork.html#a5a7f4788158d08f1b180e1bf39aae8b4">Network</a> (double n=2, double g=5, unsigned int exci=10000, unsigned int inhi=2500)</td></tr>
+<tr class="memdesc:a5a7f4788158d08f1b180e1bf39aae8b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constuctor (possibility of changes nb of neurons -&gt; used in the tests) <br/></td></tr>
+<tr class="separator:a5a7f4788158d08f1b180e1bf39aae8b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a4e19cdb4bf0c7ecf82baa643831492"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7a4e19cdb4bf0c7ecf82baa643831492"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork.html#a7a4e19cdb4bf0c7ecf82baa643831492">~Network</a> ()</td></tr>
+<tr class="memdesc:a7a4e19cdb4bf0c7ecf82baa643831492"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor (destroys all the pointers) <br/></td></tr>
+<tr class="separator:a7a4e19cdb4bf0c7ecf82baa643831492"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab59874bad4191179464d67abec9e6481"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab59874bad4191179464d67abec9e6481"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>runsimulation</b> (unsigned int)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork.html#ab59874bad4191179464d67abec9e6481">runsimulation</a> (unsigned int)</td></tr>
+<tr class="memdesc:ab59874bad4191179464d67abec9e6481"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the simultation, calls update method of calss neuron. <br/></td></tr>
 <tr class="separator:ab59874bad4191179464d67abec9e6481"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6959511f813566a6a69cea7482156b0d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6959511f813566a6a69cea7482156b0d"></a>
-<a class="el" href="classNeuron.html">Neuron</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getneuron</b> (size_t)</td></tr>
+<a class="el" href="classNeuron.html">Neuron</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork.html#a6959511f813566a6a69cea7482156b0d">getneuron</a> (size_t)</td></tr>
+<tr class="memdesc:a6959511f813566a6a69cea7482156b0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter of a neuron from the vector neuron_ (used in tests) <br/></td></tr>
 <tr class="separator:a6959511f813566a6a69cea7482156b0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77b69ef86e18061318dc9c964331afb3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a77b69ef86e18061318dc9c964331afb3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>writespikefile</b> (std::ofstream &amp;, unsigned int, unsigned int)</td></tr>
-<tr class="separator:a77b69ef86e18061318dc9c964331afb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0006b49937b5bfdb9debfd36a82d3d4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af0006b49937b5bfdb9debfd36a82d3d4"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork.html#af0006b49937b5bfdb9debfd36a82d3d4">getsizeneuron</a> ()</td></tr>
+<tr class="memdesc:af0006b49937b5bfdb9debfd36a82d3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter number of all neurons. <br/></td></tr>
+<tr class="separator:af0006b49937b5bfdb9debfd36a82d3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="Network_8hpp_source.html">Network.hpp</a></li>
@@ -113,7 +118,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>writespikefile</b> (s
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 1 2017 19:00:23 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 5 2017 17:14:22 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
