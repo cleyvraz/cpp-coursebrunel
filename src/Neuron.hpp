@@ -22,6 +22,7 @@ class Neuron
 		void addtarget(unsigned int);				//!<adds an index of a target neuron
 		void seteta(double);						//!<getter for eta, called by Network at construction
 		double getbuffer(unsigned int);				//!<getter for what's in the buffer, used in the tests
+		
 
 	private: 
 		constexpr static  double v_th_=20;			//!<Threshold potential

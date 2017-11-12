@@ -1,4 +1,5 @@
 #include "Network.hpp"
+#include <iostream>
 
 using namespace std;
 
@@ -10,15 +11,13 @@ int main ()
 	experiment();
 }
  
- 
- 
- 
- 
- 
+
  
  /******************************EXPERIMENT*************************
   * Experiment asks the user how long the simlutation should last,
-  * and which case (different graphs) it should produce
+  * and which case (different graphs) it should produce.
+  * I chose not to do a class experiment as it wouldn't really add
+  * anything more than this function 
 	***************************************************************/
  void experiment()
 {
@@ -72,5 +71,5 @@ int main ()
 			
 		Network network(e,g);
 		unsigned int n=(tStop/0.1);			///clock in steps: currentTime= h*n
-		network.runsimulation(n); 					///scans each neurons n times, calls update and receive
+		network.runsimulation(n); 			///scans each neurons n times, calls update and receive
 	}

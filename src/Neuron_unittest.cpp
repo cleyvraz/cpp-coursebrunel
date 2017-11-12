@@ -77,7 +77,6 @@ TEST(Networktest, numberUpdate)
 	{
 		EXPECT_EQ(100,(network.getneuron(i)->getclock())); 
 	}	
-
 }
 
 TEST(Networktest, buffer)
@@ -98,7 +97,6 @@ TEST(Networktest, buffer)
 			}
 		}
 	}	
-
 }
 
 int main(int argc, char **argv)
